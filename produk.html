@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Produk</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #header {
+      background: #81088a;
+      height: 100px;
+      color: #fff;
+      text-align: center;
+      line-height: 100px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #menu {
+      background: #8a085f;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    #menu a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    #menu a:hover {
+      text-decoration: underline;
+    }
+
+    #content {
+      background: #c897cc;
+      min-height: 400px;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .produk-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .produk {
+      background: #fff;
+      color: #000;
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      padding: 10px;
+    }
+
+    .produk img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .produk h4 {
+      margin: 10px 0 5px;
+    }
+
+    #footer {
+      background: #81088a;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    WELLCOME TO TUKUMU
+  </div>
+
+  <div id="menu">
+    <a href="index.html">Beranda</a>
+    <a href="produk.html">Produk</a>
+    <a href="member.html">Member</a>
+    <a href="registrasi.html">Registrasi</a>
+  </div>
+
+  <div id="content">
+    <h2>Produk Unggulan Kami</h2>
+
+    <div class="produk-container">
+      <div class="produk">
+        <img src="assets/dimsum.jpg" alt="Dimsum">
+        <h4>Dimsum Ayam</h4>
+        <p>Lezat, lembut, dan gurih. Harga Rp10.000/pcs.</p>
+      </div>
+      <div class="produk">
+        <img src="assets/pangsit.jpg" alt="Pangsit">
+        <h4>Pangsit Chili Oil</h4>
+        <p>Pedas nikmat dengan minyak cabai khas. Harga Rp12.000/porsi.</p>
+      </div>
+      <div class="produk">
+        <img src="assets/siomay.jpg" alt="Siomay">
+        <h4>Siomay Ikan </h4>
+        <p>Isi ikan pilihan dan rasa gurih menggoda. Harga Rp11.000/pcs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">Matur Thank You</div>
+</body>
+</html>
