@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #81088a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      background: #9c27b0;
+    }
+
+    .back-home {
+      background: #fff;
+      color: #81088a;
+      text-align: center;
+      margin: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      background: #e4c2e8;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .content h1 {
+      margin-bottom: 20px;
+    }
+
+    .content img {
+      max-width: 30%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .content img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 10px) {
+      .content img {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="sidebar">
+    <div>
+      <h2 style="text-align:center;">Admin </h2>
+      <a href="datauser.html"> Data User</a>
+      <a href="kelolaproduk.html"> Kelola Produk</a>
+      <a href="password.html"> Edit Password</a>
+    </div>
+    <a href="index.html" class="back-home">← Kembali ke Beranda</a>
+  </div>
+
+  <div class="content">
+    <h1>Selamat Datang di Halaman Admin</h1>
+    <img src="assets/1.jpg" alt="Gambar Iklan">
+  </div>
+</body>
+</html>
