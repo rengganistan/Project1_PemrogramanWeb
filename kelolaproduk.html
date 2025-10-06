@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelola Produk</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; display:flex; height:100vh; }
+    .sidebar { width:250px; background:#81088a; color:#fff; display:flex; flex-direction:column; justify-content:space-between; padding-top:20px; }
+    .sidebar a { color:#fff; text-decoration:none; padding:12px 20px; display:block; font-weight:bold; }
+    .sidebar a:hover { background:#9c27b0; }
+    .content { flex:1; padding:40px; }
+    table { width:100%; border-collapse:collapse; background:#fff; color:#000; }
+    th, td { border:1px solid #ccc; padding:10px; text-align:center; }
+    th { background:#81088a; color:#fff; }
+    button { background:#81088a; color:#fff; border:none; border-radius:5px; padding:5px 10px; cursor:pointer; }
+    button:hover { background:#9c27b0; }
+    input { padding:5px; margin:5px; border-radius:5px; border:1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2 style="text-align:center;"> Panel</h2>
+      <a href="datauser.html"> Data User</a>
+      <a href="kelolaproduk.html"> Kelola Produk</a>
+      <a href="password.html"> Edit Password</a>
+    </div>
+    <a href="index.html" class="back-home" style="background:#fff;color:#81088a;text-align:center;margin:20px;padding:10px;border-radius:8px;font-weight:bold;">← Kembali ke Beranda</a>
+  </div>
+
+  <div class="content">
+    <h1>Kelola Produk</h1>
+
+    <table id="produkTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Produk</th>
+          <th>Harga</th>
+          <th>Stok</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Tambah Produk</h3>
+    <form onsubmit="tambahProduk(event)">
+      <input type="text" id="namaProduk" placeholder="Nama Produk" required>
+      <input type="number" id="hargaProduk" placeholder="Harga" required>
+      <input type="number" id="stokProduk" placeholder="Stok" required>
+      <button type="submit">Tambah</button>
+    </form>
+  </div>
+
+  <script>
+    function loadProduk() {
+      const produk = JSON.parse(localStorage.getItem('produk')) || [];
+      const tbody = document.querySelector('#produkTable tbody');
+      tbody.innerHTML = '';
+      produk.forEach((item, i) => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${i+1}</td>
+            <td>${item.nama}</td>
+            <td>${item.harga}</td>
+            <td>${item.stok}</td>
+            <td>
+              <button onclick="editProduk(${i})">Edit</button>
+              <button onclick="hapusProduk(${i})">Hapus</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    function tambahProduk(e) {
+      e.preventDefault();
+      const produk = JSON.parse(localStorage.getItem('produk')) || [];
+      const baru = {
+        nama: document.getElementById('namaProduk').value,
+        harga: document.getElementById('hargaProduk').value,
+        stok: document.getElementById('stokProduk').value
+      };
+      produk.push(baru);
+      localStorage.setItem('produk', JSON.stringify(produk));
+      e.target.reset();
+      loadProduk();
+    }
+
+    function hapusProduk(i) {
+      const produk = JSON.parse(localStorage.getItem('produk')) || [];
+      produk.splice(i, 1);
+      localStorage.setItem('produk', JSON.stringify(produk));
+      loadProduk();
+    }
+
+    function editProduk(i) {
+      const produk = JSON.parse(localStorage.getItem('produk')) || [];
+      const item = produk[i];
+      const namaBaru = prompt("Nama Produk:", item.nama);
+      const hargaBaru = prompt("Harga:", item.harga);
+      const stokBaru = prompt("Stok:", item.stok);
+      if (namaBaru && hargaBaru && stokBaru) {
+        produk[i] = { nama: namaBaru, harga: hargaBaru, stok: stokBaru };
+        localStorage.setItem('produk', JSON.stringify(produk));
+        loadProduk();
+      }
+    }
+
+    loadProduk();
+  </script>
+</body>
+</html>
